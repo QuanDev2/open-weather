@@ -7,7 +7,15 @@ function GlobalStyle() {
     * {
       margin: 0;
       padding: 0;
-      
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    input {
+      padding: 0 0.5rem;
     }
   `
   return (
