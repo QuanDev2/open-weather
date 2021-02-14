@@ -1,10 +1,23 @@
 import React from 'react'
+import styled from '@emotion/styled'
+import CityInfo from './CityInfo'
+import WeatherCard from './WeatherCard'
 
-function Body() {
+const BodyContainer = styled.div``
+
+const WeatherForecast = styled.ul``
+
+function Body({ data }) {
+  const forecastList = data.list.map((item) => (
+    <li key={item.dt}>
+      <WeatherCard data={item} />
+    </li>
+  ))
   return (
-    <div>
-      Body
-    </div>
+    <BodyContainer>
+      <CityInfo city={data.city} />
+      <WeatherForecast>{forecastList}</WeatherForecast>
+    </BodyContainer>
   )
 }
 

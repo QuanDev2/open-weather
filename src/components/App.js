@@ -14,6 +14,7 @@ function App() {
     const getInstance = buildGetReq(searchInput)
     const response = await get(getInstance)
     if (response.status === 404) {
+      console.error("404 page")
       setError("City not found. Try another city.")
       setData(null)
     } else if (response.status === 200) {
@@ -22,13 +23,13 @@ function App() {
     }
   }
 
+
   return (
     <div>
       <GlobalStyle />
       <Navbar handleSubmit={handleSubmit} />
       {error && <h3>{error}</h3>}
-      {data && <h3>Got something</h3>}
-      <Body />
+      {data && <Body data={data} />}
     </div>
   )
 }
