@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   height: 100vh;
   flex-direction: column;
 `
-function App({ history }) {
+function App() {
   const { loading, data, error, handleSubmit, showError } = useFormSubmit()
 
   return (
@@ -30,7 +30,12 @@ function App({ history }) {
       <Wrapper>
         <GlobalStyle />
         {data && (
-          <Redirect to={{ pathname: '/result', state: { data: data } }} />
+          <Redirect
+            to={{
+              pathname: '/result',
+              state: { data: data }
+            }}
+          />
         )}
         <Navbar handleSubmit={handleSubmit} showError={showError} />
         <Switch>

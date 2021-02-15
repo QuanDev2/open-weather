@@ -12,8 +12,9 @@ function useFormSubmit() {
   }
 
   async function handleSubmit(searchInput) {
+    setData(null)
     setLoading(true)
-    setError(false)
+    setError('')
     const getInstance = buildGetReq(searchInput)
     const response = await get(getInstance)
     // after got the response, set hide loading spinner
