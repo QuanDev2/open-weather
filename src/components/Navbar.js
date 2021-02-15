@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
-import {useState} from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSearch} from '@fortawesome/free-solid-svg-icons' 
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Container = styled.nav`
   display: flex;
   align-items: center;
-  padding: 0.8rem 3rem;
+  padding: 0.8rem 10rem;
   background: var(--secondary);
 `
 
@@ -19,29 +19,30 @@ const SearchInput = styled.input`
   flex: 1;
   border: none;
   border-radius: 5px 0 0 5px;
-
 `
-const SearchIcon = () => <FontAwesomeIcon icon={faSearch} />
 
 const SubmitBtn = styled.button`
   padding: 0.5rem 1rem;
   border: none;
   height: 100%;
+  width: 80px;
   border-radius: 0 5px 5px 0;
+  color: var(--secondary);
   background: var(--accent-2);
   cursor: pointer;
-
+  &:hover {
+    opacity: 85%;
+  }
 `
 
-const Title = styled.h1`
+const Title = styled.a`
   font-size: 1.5rem;
   margin-right: 1.5rem;
   color: var(--white);
 `
 
-export default function Navbar({handleSubmit}) {
-
-  const [input, setInput] = useState("")
+export default function Navbar({ handleSubmit }) {
+  const [input, setInput] = useState('')
 
   function onInputSubmit(e) {
     e.preventDefault()
@@ -50,9 +51,11 @@ export default function Navbar({handleSubmit}) {
 
   return (
     <Container>
-      <Title>
-        
-        <span style={{ color: 'var(--accent-2)', fontSize: '1.5rem' }}>Quan's</span> Weather App
+      <Title href='/'>
+        <span style={{ color: 'var(--accent-2)', fontSize: '2rem' }}>
+          Quan's
+        </span>{' '}
+        Weather App
       </Title>
       <NavForm onSubmit={onInputSubmit}>
         <SearchInput
@@ -62,10 +65,9 @@ export default function Navbar({handleSubmit}) {
           onChange={(e) => setInput(e.target.value)}
         />
         <SubmitBtn type='submit'>
-          <SearchIcon />
+          <FontAwesomeIcon icon={faSearch} />
         </SubmitBtn>
       </NavForm>
     </Container>
   )
 }
- 

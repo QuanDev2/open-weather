@@ -5,7 +5,6 @@ import Temperature from './Temperature';
 import WeatherStats from './WeatherStats';
 
 const Container = styled.div`
-  /* background: gray; */
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
@@ -14,7 +13,6 @@ const Container = styled.div`
   background: var(--accent-3);
   color: var(--white);
   border-radius: 10px;
-
 `
 
 

@@ -6,13 +6,13 @@ function GlobalStyle() {
 
   const globalStyle = css`
     :root {
-      --background: #fffffc;
-      --secondary: #001935;
-      --white: #fefffe;
+      --secondary: #0e2947;
+      --white: #fffcf9;
       --black: #071013;
-      --accent-1: #d95e3f;
-      --accent-2: #f1992f;
-      --accent-3: #529fcd;
+      --accent-1: #ff8552;
+      --accent-2: #f7b32b;
+      --accent-3: #987284;
+      --accent-4: #43aa8b;
     }
 
     * {
@@ -21,6 +21,10 @@ function GlobalStyle() {
       box-sizing: border-box;
       font-family: 'Montserrat', sans-serif;
       font-size: 16px;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     body {
@@ -34,8 +38,6 @@ function GlobalStyle() {
     input {
       padding: 0 0.5rem;
     }
-
-    
   `
   return (
     <Global styles={globalStyle} />
