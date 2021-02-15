@@ -17,6 +17,7 @@ import {
 } from 'react-router-dom'
 import NotFound from './NotFound'
 import ToggleBtn from '../utils/ToggleBtn'
+import { ThemeProvider } from '../context/ThemeContext'
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,31 +28,32 @@ function App() {
   const { loading, data, error, handleSubmit, showError } = useFormSubmit()
 
   return (
-    <Router>
-      {data && (
-        <Redirect
-          to={{
-            pathname: '/result',
-            state: { data: data }
-          }}
-        />
-      )}
-      <GlobalStyle />
-      <Wrapper>
-        <Navbar handleSubmit={handleSubmit} showError={showError} />
-
-        <Switch>
-          {loading && <Spinner />}
-          {error && <Error msg={error} />}
-          <Route exact path='/' component={Welcome} />
-          <Route path='/result'>
-            <MainContent />
-          </Route>
-          <Route path='*' component={NotFound} />
-        </Switch>
-        <Footer />
-      </Wrapper>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        {data && (
+          <Redirect
+            to={{
+              pathname: '/result',
+              state: { data: data }
+            }}
+          />
+        )}
+        <GlobalStyle />
+        <Wrapper>
+          <Navbar handleSubmit={handleSubmit} showError={showError} />
+          <Switch>
+            {loading && <Spinner />}
+            {error && <Error msg={error} />}
+            <Route exact path='/' component={Welcome} />
+            <Route path='/result'>
+              <MainContent />
+            </Route>
+            <Route path='*' component={NotFound} />
+          </Switch>
+          <Footer />
+        </Wrapper>
+      </Router>
+    </ThemeProvider>
   )
 }
 

@@ -15,6 +15,7 @@ function useFormSubmit() {
     setData(null)
     setLoading(true)
     setError('')
+    console.log(`In useFormSubmit, input = ${searchInput}`)
     const getInstance = buildGetReq(searchInput)
     const response = await get(getInstance)
     // after got the response, set hide loading spinner
@@ -25,7 +26,11 @@ function useFormSubmit() {
     } else if (response.status === 400) {
       setError('Please enter a valid city name.')
       setData(null)
-    } else if (response.status === 200) {
+    } else if (response.status === 401) {
+      setError('Your stupid developer forgot to set API KEY env again. Call him now!')
+      setData(null)
+    }
+    else if (response.status === 200) {
       setData(response.data)
       setError('')
     }
