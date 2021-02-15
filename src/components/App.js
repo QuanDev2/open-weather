@@ -8,7 +8,7 @@ import Welcome from './Welcome'
 import Error from './Error'
 import Spinner from '../utils/Spinner'
 import useFormSubmit from '../utils/useFormSubmit'
-// import useNavigate from
+
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +16,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import NotFound from './NotFound'
+import ToggleBtn from '../utils/ToggleBtn'
 
 const Wrapper = styled.div`
   display: flex;
@@ -27,17 +28,18 @@ function App() {
 
   return (
     <Router>
+      {data && (
+        <Redirect
+          to={{
+            pathname: '/result',
+            state: { data: data }
+          }}
+        />
+      )}
+      <GlobalStyle />
       <Wrapper>
-        <GlobalStyle />
-        {data && (
-          <Redirect
-            to={{
-              pathname: '/result',
-              state: { data: data }
-            }}
-          />
-        )}
         <Navbar handleSubmit={handleSubmit} showError={showError} />
+
         <Switch>
           {loading && <Spinner />}
           {error && <Error msg={error} />}

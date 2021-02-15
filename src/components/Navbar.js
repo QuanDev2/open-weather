@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import {Link} from 'react-router-dom'
+import ToggleBtn from '../utils/ToggleBtn';
 
 const Container = styled.nav`
   display: flex;
@@ -73,6 +74,7 @@ export default function Navbar({ handleSubmit, showError }) {
           <FontAwesomeIcon icon={faSearch} />
         </SubmitBtn>
       </NavForm>
+      <ToggleBtn/>
     </Container>
   )
 }
