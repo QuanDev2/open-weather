@@ -9,6 +9,7 @@ import Error from './Error'
 import Spinner from '../utils/Spinner'
 import useFormSubmit from '../utils/useFormSubmit'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import NotFound from './NotFound';
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,7 +36,8 @@ function App() {
           {error && <Error msg={error} />}
           {data && <MainContent data={data} />}
           {/* {welcome && <Welcome />} */}
-          <Route path='/' component={Welcome}/>
+          <Route exact path='/' component={Welcome}/>
+          <Route path='*' component={NotFound}/>
         </Switch>
         <Footer />
       </Wrapper>
