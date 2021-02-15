@@ -6,16 +6,13 @@ function useFormSubmit() {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
   const [error, setError] = useState('')
-  const [welcome, setWelcome] = useState(true)
 
   function showError(err) {
     setError(err)
-    setWelcome(false)
   }
 
   async function handleSubmit(searchInput) {
     setLoading(true)
-    setWelcome(false)
     setError(false)
     const getInstance = buildGetReq(searchInput)
     const response = await get(getInstance)
@@ -32,7 +29,7 @@ function useFormSubmit() {
       setError('')
     }
   }
-  return { loading, data, error, welcome, handleSubmit, showError }
+  return { loading, data, error, handleSubmit, showError }
 }
 
 export default useFormSubmit

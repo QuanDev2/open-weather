@@ -36,7 +36,7 @@ const SubmitBtn = styled.button`
   }
 `
 
-const Title = styled.a`
+const Title = styled(Link)`
   font-size: 1.5rem;
   margin-right: 1.5rem;
   color: var(--white);
@@ -56,7 +56,7 @@ export default function Navbar({ handleSubmit, showError }) {
 
   return (
     <Container>
-      <Title href='/'>
+      <Title to='/'>
         <span style={{ color: 'var(--accent-2)', fontSize: '2rem' }}>
           Quan's
         </span>{' '}

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import CityInfo from './city/CityInfo'
 import WeatherCard from './weatherCard/WeatherCard'
+import {useLocation} from 'react-router-dom'
 
 const Container = styled.div`
   background: var(--white);
@@ -22,7 +23,10 @@ const WeatherForecast = styled.ul`
   padding-top: 2rem;
 `
 
-function MainContent({ data }) {
+function MainContent() {
+  const {state} = useLocation()
+  const {data} = state
+  console.log(data)
   const forecastList = data.list.map((item) => (
     <li key={item.dt}>
       <WeatherCard data={item} />

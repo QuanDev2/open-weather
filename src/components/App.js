@@ -8,36 +8,39 @@ import Welcome from './Welcome'
 import Error from './Error'
 import Spinner from '../utils/Spinner'
 import useFormSubmit from '../utils/useFormSubmit'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import NotFound from './NotFound';
+// import useNavigate from
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+import NotFound from './NotFound'
 
 const Wrapper = styled.div`
   display: flex;
   height: 100vh;
   flex-direction: column;
 `
-function App() {
-  const {
-    loading,
-    data,
-    error,
-    welcome,
-    handleSubmit,
-    showError
-  } = useFormSubmit()
+function App({ history }) {
+  const { loading, data, error, handleSubmit, showError } = useFormSubmit()
 
   return (
     <Router>
       <Wrapper>
         <GlobalStyle />
+        {data && (
+          <Redirect to={{ pathname: '/result', state: { data: data } }} />
+        )}
         <Navbar handleSubmit={handleSubmit} showError={showError} />
         <Switch>
           {loading && <Spinner />}
           {error && <Error msg={error} />}
-          {data && <MainContent data={data} />}
-          {/* {welcome && <Welcome />} */}
-          <Route exact path='/' component={Welcome}/>
-          <Route path='*' component={NotFound}/>
+          <Route exact path='/' component={Welcome} />
+          <Route path='/result'>
+            <MainContent />
+          </Route>
+          <Route path='*' component={NotFound} />
         </Switch>
         <Footer />
       </Wrapper>
