@@ -13,7 +13,9 @@ const LoTemp = styled.div``
 function HiLowTemp({hiTemp, loTemp}) {
   return (
     <Container>
-      <HiTemp>HI: {parseInt(hiTemp)}&#186;</HiTemp>
+      <HiTemp>
+        <span style={{marginRight: '0.3rem'}}>HI:</span> {parseInt(hiTemp)}&#186;
+      </HiTemp>
       <LoTemp>LO: {parseInt(loTemp)}&#186;</LoTemp>
     </Container>
   )

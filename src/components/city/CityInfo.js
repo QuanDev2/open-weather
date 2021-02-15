@@ -2,7 +2,17 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
-  text-align: center;
+  background: var(--secondary);
+  color: var(--white);
+  padding: 1rem;
+`
+
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 35%;
+  margin: auto;
+  align-items: center;
 `
 
 const CityName = styled.div`
@@ -15,6 +25,13 @@ const Sunset = styled.div`
 
 const Sunrise = styled.div`
   display: inline-block;
+`
+
+const SunriseIcon = styled.i`
+  font-size: 1.25rem;
+`
+const SunsetIcon = styled.i`
+font-size: 1.25rem;
 `
 
 function CityInfo({ city }) {
@@ -31,9 +48,11 @@ function CityInfo({ city }) {
 
   return (
     <Container>
-      <CityName>{city.name}</CityName>
-      <Sunrise>Sunrise: {sunriseTime}</Sunrise>
-      <Sunset>Sunset: {sunsetTime}</Sunset>
+      <FlexContainer>
+        <Sunrise><SunriseIcon className="wi wi-sunrise"/> Sunrise: {sunriseTime}</Sunrise>
+        <CityName>{city.name}</CityName>
+        <Sunset>Sunset: {sunsetTime} <SunsetIcon className="wi wi-sunset"/></Sunset>
+      </FlexContainer>
     </Container>
   )
 }

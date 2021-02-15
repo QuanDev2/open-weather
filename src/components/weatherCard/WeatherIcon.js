@@ -12,6 +12,7 @@ const Icon = styled.img`
 
 const Description = styled.div`
   font-size: 1.5rem;
+  margin-left: 0.6rem;
 `
 
 function WeatherIcon({ iconId, description, time }) {

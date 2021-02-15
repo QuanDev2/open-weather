@@ -8,6 +8,7 @@ const BodyContainer = styled.div``
 const WeatherForecast = styled.ul`
   max-width: 40%;
   margin: auto;
+  padding-top: 1rem;
 `
 
 function Body({ data }) {

@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import Navbar from './Navbar';
 
 import Body from './Body';
-import GlobalStyle from '../utils/GlobalStyle'
+import GlobalStyle from '../utils/stylingUtils/GlobalStyle'
 import { buildGetReq } from '../utils/networkUtils/OpenWeatherApi'
 import { get } from '../utils/networkUtils/ApiService'
+import Footer from './Footer';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
       setError("")
     }
   }
-
+  
 
   return (
     <div>
@@ -30,6 +31,7 @@ function App() {
       <Navbar handleSubmit={handleSubmit} />
       {error && <h3>{error}</h3>}
       {data && <Body data={data} />}
+      <Footer/>
     </div>
   )
 }

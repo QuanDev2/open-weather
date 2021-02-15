@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 const Container = styled.div`
   margin-bottom: 0.3rem;
+  margin-left: 0.6rem;
 `
 
 function DateTime({epochTime}) {
