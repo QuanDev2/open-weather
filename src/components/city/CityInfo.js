@@ -18,6 +18,7 @@ const FlexContainer = styled.div`
 const CityName = styled.div`
   font-size: 2rem;
   display: inline-block;
+  color: var(--white);
 `
 const Sunset = styled.div`
   display: inline-block;

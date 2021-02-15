@@ -7,6 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10rem;
 `
 const ErrorMsg = styled.h1`
   color: var(--accent-1);

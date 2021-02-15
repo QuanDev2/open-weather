@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import {Link} from 'react-router-dom'
 
 const Container = styled.nav`
   display: flex;
@@ -41,11 +42,15 @@ const Title = styled.a`
   color: var(--white);
 `
 
-export default function Navbar({ handleSubmit }) {
+export default function Navbar({ handleSubmit, showError }) {
   const [input, setInput] = useState('')
 
   function onInputSubmit(e) {
     e.preventDefault()
+    if (input === '') {
+      showError('Please enter a city name')
+      return
+    }
     handleSubmit(input)
   }
 

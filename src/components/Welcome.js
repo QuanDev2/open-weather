@@ -6,6 +6,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 10rem;
 `
 const Title = styled.h1`
   font-size: 4rem;

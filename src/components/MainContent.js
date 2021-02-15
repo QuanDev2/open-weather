@@ -6,12 +6,20 @@ import WeatherCard from './weatherCard/WeatherCard'
 const Container = styled.div`
   background: var(--white);
   flex: 1;
+  padding-bottom: 4rem;
+
+  &::before {
+    content: '';
+    display: block;
+    background: var(--accent-1);
+    height: 1px;
+  }
 `
 
 const WeatherForecast = styled.ul`
   max-width: 40%;
   margin: auto;
-  padding-top: 1rem;
+  padding-top: 2rem;
 `
 
 function MainContent({ data }) {
