@@ -5,7 +5,7 @@ import Toggle from 'react-toggle'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
-  color: var(--white);
+  color: var(--primary);
   margin-left: 3rem;
   display: flex;
   align-items: center;

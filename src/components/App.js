@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import styled from '@emotion/styled'
@@ -8,7 +8,6 @@ import Welcome from './Welcome'
 import Error from './Error'
 import Spinner from '../utils/Spinner'
 import useFormSubmit from '../utils/useFormSubmit'
-
 import {
   BrowserRouter as Router,
   Route,
@@ -17,7 +16,7 @@ import {
 } from 'react-router-dom'
 import NotFound from './NotFound'
 import ToggleBtn from '../utils/ToggleBtn'
-import { ThemeProvider } from '../context/ThemeContext'
+import {ThemeContext} from '../context/ThemeContext'
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,9 +25,8 @@ const Wrapper = styled.div`
 `
 function App() {
   const { loading, data, error, handleSubmit, showError } = useFormSubmit()
-
+  const {theme, switchTheme} = useContext(ThemeContext)
   return (
-    <ThemeProvider>
       <Router>
         {data && (
           <Redirect
@@ -41,6 +39,7 @@ function App() {
         <GlobalStyle />
         <Wrapper>
           <Navbar handleSubmit={handleSubmit} showError={showError} />
+          <button onClick={switchTheme}>{theme}</button>
           <Switch>
             {loading && <Spinner />}
             {error && <Error msg={error} />}
@@ -53,7 +52,6 @@ function App() {
           <Footer />
         </Wrapper>
       </Router>
-    </ThemeProvider>
   )
 }
 

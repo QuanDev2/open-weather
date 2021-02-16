@@ -7,7 +7,7 @@ const Container = styled.div`
   padding: 1rem;
   height: 80px;
   background-color: var(--secondary);
-  color: var(--white);
+  color: var(--primary);
   line-height: 1.5;
   width: 100%;
 `

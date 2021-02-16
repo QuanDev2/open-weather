@@ -40,7 +40,7 @@ const SubmitBtn = styled.button`
 const Title = styled(Link)`
   font-size: 1.5rem;
   margin-right: 1.5rem;
-  color: var(--white);
+  color: var(--primary);
 `
 
 export default function Navbar({ handleSubmit, showError }) {

@@ -5,7 +5,7 @@ import WeatherCard from './weatherCard/WeatherCard'
 import {useLocation} from 'react-router-dom'
 
 const Container = styled.div`
-  background: var(--white);
+  background: var(--primary);
   flex: 1;
   padding-bottom: 4rem;
 

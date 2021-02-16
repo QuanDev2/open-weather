@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 
 const Container = styled.div`
   background: var(--secondary);
-  color: var(--white);
+  color: var(--primary);
   padding: 1rem;
 `
 
@@ -18,7 +18,7 @@ const FlexContainer = styled.div`
 const CityName = styled.div`
   font-size: 2rem;
   display: inline-block;
-  color: var(--white);
+  color: var(--primary);
 `
 const Sunset = styled.div`
   display: inline-block;

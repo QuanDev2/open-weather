@@ -7,14 +7,16 @@ function GlobalStyle() {
   const globalStyle = css`
     :root {
       --secondary: #0e2947;
-      --white: #fffcf9;
-      --black: #071013;
+      --primary: #fffcf9;
       --accent-1: #ff8552;
       --accent-2: #f7b32b;
       --accent-3: #987284;
       --accent-4: #43aa8b;
     }
-
+    /* smooth out theme transition */
+    *:not(body) {
+      transition: all 0.5s ease;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -28,7 +30,7 @@ function GlobalStyle() {
     }
 
     body {
-      background-color: var(--background);
+      background-color: var(--primary);
     }
 
     li {

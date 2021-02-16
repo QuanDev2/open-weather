@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
   padding: 1rem 2rem;
   background: var(--accent-3);
-  color: var(--white);
+  color: var(--secondary);
   border-radius: 10px;
 `
 
