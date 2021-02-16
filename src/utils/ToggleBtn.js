@@ -4,9 +4,9 @@ import 'react-toggle/style.css'
 import Toggle from 'react-toggle'
 import styled from '@emotion/styled'
 import { ThemeContext } from '../context/ThemeContext'
-import { useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
+import { useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
 const Container = styled.div`
   color: var(--foreground-nav);
@@ -18,14 +18,18 @@ const Label = styled.span`
   margin-left: 1rem;
 `
 
-
-const MoonIcon = styled(() => <FontAwesomeIcon icon={faMoon} size='sm'/>)``
-const SunIcon = styled(() => <FontAwesomeIcon icon={faSun} size='sm' />)``
-
-
 export default function ToggleBtn() {
   const { theme, switchTheme } = useContext(ThemeContext)
-  
+
+  const SunIconContainer = styled.div`
+    margin-right: 10px;
+
+    color: ${theme === 'light' ? `var(--accent-nav)` : `gray`};
+  `
+  const MoonIconContainer = styled.div`
+    margin-left: 10px;
+    color: ${theme === 'dark' ? `var(--foreground-nav)` : `gray`};
+  `
   const toggleStyles = css`
     .react-toggle {
       touch-action: pan-x;
@@ -71,7 +75,8 @@ export default function ToggleBtn() {
       height: 24px;
       padding: 0;
       border-radius: 30px;
-      background-color: #4d4d4d;
+      /* background-color: #4d4d4d; */
+      background-color: #128d15;
       -webkit-transition: all 0.2s ease;
       -moz-transition: all 0.2s ease;
       transition: all 0.2s ease;
@@ -82,7 +87,7 @@ export default function ToggleBtn() {
     }
 
     .react-toggle--checked .react-toggle-track {
-      background-color: #19ab27;
+      background-color: #4d4d4d;
     }
 
     .react-toggle--checked:hover:not(.react-toggle--disabled)
@@ -140,7 +145,7 @@ export default function ToggleBtn() {
       left: 1px;
       width: 22px;
       height: 22px;
-      border: 1px solid #4d4d4d;
+      border: 1px solid #128d15;
       border-radius: 50%;
       background-color: #fafafa;
 
@@ -171,16 +176,16 @@ export default function ToggleBtn() {
     }
   `
 
-    return (
-      <Container css={toggleStyles}>
-        <Toggle
-          icons={{
-            checked: <SunIcon />,
-            unchecked: <MoonIcon />
-          }}
-          onChange={switchTheme}
-        />
-        <Label>{theme}</Label>
-      </Container>
-    )
+  return (
+    <Container css={toggleStyles}>
+      <SunIconContainer>
+        <FontAwesomeIcon icon={faSun} size='lg' />
+      </SunIconContainer>
+      <Toggle icons={false} defaultChecked={false} onChange={switchTheme} />
+      {/* <Label>{theme}</Label> */}
+      <MoonIconContainer>
+        <FontAwesomeIcon icon={faMoon} size='lg' />
+      </MoonIconContainer>
+    </Container>
+  )
 }
