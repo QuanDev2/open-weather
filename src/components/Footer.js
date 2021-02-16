@@ -6,8 +6,8 @@ const Container = styled.div`
   text-align: center;
   padding: 1rem;
   height: 80px;
-  background-color: var(--secondary);
-  color: var(--primary);
+  background-color: var(--background-nav);
+  color: var(--foreground-nav);
   line-height: 1.5;
   width: 100%;
 `

@@ -5,14 +5,6 @@ import './weatherIcons/css/weather-icons.css'
 function GlobalStyle() {
 
   const globalStyle = css`
-    :root {
-      --secondary: #0e2947;
-      --primary: #fffcf9;
-      --accent-1: #ff8552;
-      --accent-2: #f7b32b;
-      --accent-3: #987284;
-      --accent-4: #43aa8b;
-    }
     /* smooth out theme transition */
     *:not(body) {
       transition: all 0.5s ease;
@@ -30,7 +22,7 @@ function GlobalStyle() {
     }
 
     body {
-      background-color: var(--primary);
+      background-color: var(--background-body);
     }
 
     li {

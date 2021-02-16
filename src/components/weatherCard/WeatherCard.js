@@ -10,8 +10,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: var(--accent-3);
-  color: var(--secondary);
+  background: var(--background-card);
+  color: var(--foreground-card);
   border-radius: 10px;
 `
 

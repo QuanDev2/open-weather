@@ -10,7 +10,8 @@ const Container = styled.div`
   padding: 10rem;
 `
 const ErrorMsg = styled.h1`
-  color: var(--accent-1);
+  color: var(--accent-error);
+  /* color: red; */
   font-size: 4rem;
   padding-bottom: 200px;
 `

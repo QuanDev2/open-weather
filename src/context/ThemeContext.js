@@ -10,32 +10,25 @@ export function ThemeProvider(props) {
   const [theme, setTheme] = useState('light')
 
   // paints the app before rendering elements
-  // useLayoutEffect(() => {
-  //   const lastTheme = window.localStorage.getItem('theme')
-  //   if (lastTheme === 'light') {
-  //     setTheme('dark')
-  //     applyTheme(darkTheme)
-  //   } else if (!lastTheme || lastTheme === 'dark' ) {
-  //     // if no theme was in local storage, set to light
-  //     setTheme('light')
-  //     applyTheme(lightTheme)
-  //   }
-
-  // }, [theme])
+  useLayoutEffect(() => {
+    const lastTheme = window.localStorage.getItem('theme')
+    if (lastTheme === 'light') {
+      setTheme('dark')
+      applyTheme(darkTheme)
+    } else if (!lastTheme || lastTheme === 'dark' ) {
+      // if no theme was in local storage, set to light
+      setTheme('light')
+      applyTheme(lightTheme)
+    }
+  }, [theme])
 
   function switchTheme() {
     // make theme transition smooth
     const body = document.getElementsByTagName('body')[0]
     body.style.cssText = 'transition: background 0.5s ease'
 
-    if (theme === 'light') {
-      setTheme('dark')
-      applyTheme(darkTheme)
-    } else if (!theme || theme === 'dark') {
-      // if no theme was in local storage, set to light
-      setTheme('light')
-      applyTheme(lightTheme)
-    }
+    theme === 'light' ? setTheme('dark') : setTheme('light')
+
     window.localStorage.setItem('theme', theme)
   }
 
@@ -60,19 +53,23 @@ export function ThemeProvider(props) {
 // theme styling
 
 const lightTheme = [
-  '--primary: #fffcf9',
-  '--secondary: #0e2947',
-  '--accent-1: #ff8552',
-  '--accent-2: #f7b32b',
-  '--accent-3: #FBD7B1',
-  '--accent-4: #43aa8b'
+  '--background-body: #fffcf9',
+  '--background-nav: #0e2947 ',
+  '--accent-nav: #f7b32b',
+  '--foreground-nav: #fffcf9',
+  '--accent-success: #43aa8b',
+  '--accent-error: #ff8552',
+  '--background-card: #FBD7B1',
+  '--foreground-card: #0e2947'
 ]
 
 const darkTheme = [
-  '--primary: #1d2d50',
-  '--secondary: #fcdab7',
-  '--accent-1: #e94560',
-  '--accent-2: #133b5c',
-  '--accent-3: #fcdab7',
-  '--accent-4: #fcdab7'
+  '--background-body: #1f1e1d',
+  '--background-nav: #272628 ',
+  '--accent-nav: #f7b32b',
+  '--foreground-nav: #ffffff',
+  '--accent-success: #43aa8b',
+  '--accent-error: #e94560',
+  '--background-card: #272628',
+  '--foreground-card: #ffffff'
 ]

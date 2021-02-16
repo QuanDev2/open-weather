@@ -11,7 +11,7 @@ const Container = styled.div`
 `
 const Title = styled.h1`
   font-size: 4rem;
-  color: var(--accent-4);
+  color: var(--accent-success);
   padding-bottom: 200px;
   
 `

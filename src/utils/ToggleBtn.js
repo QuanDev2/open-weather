@@ -3,9 +3,13 @@ import { css } from '@emotion/react'
 import 'react-toggle/style.css'
 import Toggle from 'react-toggle'
 import styled from '@emotion/styled'
+import { ThemeContext } from '../context/ThemeContext'
+import { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons'
 
 const Container = styled.div`
-  color: var(--primary);
+  color: var(--foreground-nav);
   margin-left: 3rem;
   display: flex;
   align-items: center;
@@ -14,7 +18,13 @@ const Label = styled.span`
   margin-left: 1rem;
 `
 
+
+const MoonIcon = styled(() => <FontAwesomeIcon icon={faMoon} size='sm'/>)``
+const SunIcon = styled(() => <FontAwesomeIcon icon={faSun} size='sm' />)``
+
+
 export default function ToggleBtn() {
+  const { theme, switchTheme } = useContext(ThemeContext)
   
   const toggleStyles = css`
     .react-toggle {
@@ -145,7 +155,7 @@ export default function ToggleBtn() {
 
     .react-toggle--checked .react-toggle-thumb {
       left: 27px;
-      border-color: #19ab27;
+      border-color: var(--accent-success);
     }
 
     .react-toggle--focus .react-toggle-thumb {
@@ -160,14 +170,17 @@ export default function ToggleBtn() {
       box-shadow: 0px 0px 5px 5px #0099e0;
     }
   `
-  return (
-    <Container css={toggleStyles}>
-      <Toggle
-        // defaultChecked={state.tofuIsReady}
-        icons={false}
-        // onChange={this.handleTofuChange}
-      />
-      <Label>Light</Label>
-    </Container>
-  )
+
+    return (
+      <Container css={toggleStyles}>
+        <Toggle
+          icons={{
+            checked: <SunIcon />,
+            unchecked: <MoonIcon />
+          }}
+          onChange={switchTheme}
+        />
+        <Label>{theme}</Label>
+      </Container>
+    )
 }

@@ -15,8 +15,6 @@ import {
   Redirect
 } from 'react-router-dom'
 import NotFound from './NotFound'
-import ToggleBtn from '../utils/ToggleBtn'
-import {ThemeContext} from '../context/ThemeContext'
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,7 +23,6 @@ const Wrapper = styled.div`
 `
 function App() {
   const { loading, data, error, handleSubmit, showError } = useFormSubmit()
-  const {theme, switchTheme} = useContext(ThemeContext)
   return (
       <Router>
         {data && (
@@ -39,7 +36,6 @@ function App() {
         <GlobalStyle />
         <Wrapper>
           <Navbar handleSubmit={handleSubmit} showError={showError} />
-          <button onClick={switchTheme}>{theme}</button>
           <Switch>
             {loading && <Spinner />}
             {error && <Error msg={error} />}

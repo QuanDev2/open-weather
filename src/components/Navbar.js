@@ -9,7 +9,7 @@ const Container = styled.nav`
   display: flex;
   align-items: center;
   padding: 0.8rem 10rem;
-  background: var(--secondary);
+  background: var(--background-nav);
 `
 
 const NavForm = styled.form`
@@ -29,8 +29,8 @@ const SubmitBtn = styled.button`
   height: 100%;
   width: 80px;
   border-radius: 0 5px 5px 0;
-  color: var(--secondary);
-  background: var(--accent-2);
+  color: var(--foreground-nav);
+  background: var(--accent-nav);
   cursor: pointer;
   &:hover {
     opacity: 85%;
@@ -40,7 +40,7 @@ const SubmitBtn = styled.button`
 const Title = styled(Link)`
   font-size: 1.5rem;
   margin-right: 1.5rem;
-  color: var(--primary);
+  color: var(--foreground-nav);
 `
 
 export default function Navbar({ handleSubmit, showError }) {
@@ -58,7 +58,7 @@ export default function Navbar({ handleSubmit, showError }) {
   return (
     <Container>
       <Title to='/'>
-        <span style={{ color: 'var(--accent-2)', fontSize: '2rem' }}>
+        <span style={{ color: 'var(--accent-nav)', fontSize: '2rem' }}>
           Quan's
         </span>{' '}
         Weather App

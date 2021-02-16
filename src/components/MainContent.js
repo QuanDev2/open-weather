@@ -5,14 +5,14 @@ import WeatherCard from './weatherCard/WeatherCard'
 import {useLocation} from 'react-router-dom'
 
 const Container = styled.div`
-  background: var(--primary);
+  background: var(--background-body);
   flex: 1;
   padding-bottom: 4rem;
 
   &::before {
     content: '';
     display: block;
-    background: var(--accent-1);
+    background: var(--accent-error);
     height: 1px;
   }
 `
@@ -26,7 +26,6 @@ const WeatherForecast = styled.ul`
 function MainContent() {
   const {state} = useLocation()
   const {data} = state
-  console.log(data)
   const forecastList = data.list.map((item) => (
     <li key={item.dt}>
       <WeatherCard data={item} />

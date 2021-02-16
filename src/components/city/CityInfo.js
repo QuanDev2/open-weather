@@ -2,8 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Container = styled.div`
-  background: var(--secondary);
-  color: var(--primary);
+  background: var(--background-nav);
+  color: var(--foreground-nav);
   padding: 1rem;
 `
 
@@ -18,7 +18,7 @@ const FlexContainer = styled.div`
 const CityName = styled.div`
   font-size: 2rem;
   display: inline-block;
-  color: var(--primary);
+  color: var(--foreground-nav);
 `
 const Sunset = styled.div`
   display: inline-block;

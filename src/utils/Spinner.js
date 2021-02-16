@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--accent-1);
+  color: var(--accent-success);
 `
 
 const StyledLoader = styled(PuffLoader)`
