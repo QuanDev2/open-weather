@@ -25,7 +25,7 @@ export function ThemeProvider(props) {
   function switchTheme() {
     // make theme transition smooth
     const body = document.getElementsByTagName('body')[0]
-    body.style.cssText = 'transition: background 0.5s ease'
+    body.style.cssText = 'transition: all 0.5s ease'
 
     theme === 'light' ? setTheme('dark') : setTheme('light')
 

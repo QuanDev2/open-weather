@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, {  } from 'react'
 import styled from '@emotion/styled'
 import CityInfo from './city/CityInfo'
-import { useLocation } from 'react-router-dom'
-import queryString from 'query-string'
-import { buildGetReq } from '../utils/networkUtils/OpenWeatherApi'
-import ApiService from '../utils/networkUtils/ApiService'
 import Spinner from '../utils/Spinner'
 import ForecastList from './ForecastList'
-import Error from './Error';
+import Error from './Error'
+import useFetchData from './hooks/useFetchData';
 
 const Container = styled.div`
   background: var(--background-body);
@@ -22,50 +19,18 @@ const Container = styled.div`
   }
 `
 function MainContent() {
-
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState(null)
-  const [error, setError] = useState('')
-  const { search } = useLocation()
-  const { city } = queryString.parse(search)
-
-  async function fetchData(input) {
-    const getInstance = buildGetReq(input)
-    const response = await ApiService.get(getInstance)
-    setLoading(false)
-    if (response.status === 404) {
-      setError('City not found. Try another city.')
-      setData(null)
-    } else if (response.status === 400) {
-      setError('Please enter a valid city name.')
-      setData(null)
-    } else if (response.status === 401) {
-      setError('Your stupid developer forgot to set API KEY env again. Call him now!')
-      setData(null)
-    }
-    else if (response.status === 200) {
-      setData(response.data)
-      setError('')
-    }
-
-  }
-
-  useEffect(() => {
-    fetchData(city)
-    return () => {
-      // cleanup
-    }
-  }, [])
+  const {data, loading, error} = useFetchData()
 
   if (loading) return <Spinner />
   else if (error) return <Error msg={error} />
-  else return (
-    <>
-      <CityInfo city={data.city} />
-      <ForecastList list={data.list} />
-    </>
-  )
-
+  else if (!data) return null
+  else
+    return (
+      <Container>
+        <CityInfo city={data.city} />
+        <ForecastList list={data.list} />
+      </Container>
+    )
 }
 
 export default MainContent

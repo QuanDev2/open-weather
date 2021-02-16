@@ -9,7 +9,6 @@ const Container = styled.ul`
 `
 
 function ForecastList({ list }) {
-  console.log(list)
   if (!list) return null
   return (
     <Container>

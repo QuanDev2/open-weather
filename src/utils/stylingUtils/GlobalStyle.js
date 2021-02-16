@@ -5,10 +5,6 @@ import './weatherIcons/css/weather-icons.css'
 function GlobalStyle() {
 
   const globalStyle = css`
-    /* smooth out theme transition */
-    *:not(body) {
-      transition: all 0.5s ease;
-    }
     * {
       margin: 0;
       padding: 0;

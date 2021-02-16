@@ -44,17 +44,12 @@ const Title = styled(Link)`
   color: var(--foreground-nav);
 `
 
-export default function Navbar({ handleSubmit, showError }) {
+export default function Navbar() {
   const [input, setInput] = useState('')
   const history = useHistory()
 
   function onInputSubmit(e) {
     e.preventDefault()
-    if (input === '') {
-      showError('Please enter a city name')
-      return
-    }
-    console.log("Hey", input)
     history.push({
       pathname: '/forecast',
       search: `city=${input}`

@@ -14,10 +14,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
 `
-const Label = styled.span`
-  margin-left: 1rem;
-`
-
 export default function ToggleBtn() {
   const { theme, switchTheme } = useContext(ThemeContext)
 
@@ -181,8 +177,7 @@ export default function ToggleBtn() {
       <SunIconContainer>
         <FontAwesomeIcon icon={faSun} size='lg' />
       </SunIconContainer>
-      <Toggle icons={false} defaultChecked={false} onChange={switchTheme} />
-      {/* <Label>{theme}</Label> */}
+      <Toggle icons={false} defaultChecked={theme==='light'} onChange={switchTheme} />
       <MoonIconContainer>
         <FontAwesomeIcon icon={faMoon} size='lg' />
       </MoonIconContainer>
