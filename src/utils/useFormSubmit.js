@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { buildGetReq } from '../utils/networkUtils/OpenWeatherApi'
-import { get } from '../utils/networkUtils/ApiService'
+import ApiService from '../utils/networkUtils/ApiService'
 
 function useFormSubmit() {
   const [loading, setLoading] = useState(false)
@@ -15,9 +15,8 @@ function useFormSubmit() {
     setData(null)
     setLoading(true)
     setError('')
-    console.log(`In useFormSubmit, input = ${searchInput}`)
     const getInstance = buildGetReq(searchInput)
-    const response = await get(getInstance)
+    const response = await ApiService.get(getInstance)
     // after got the response, set hide loading spinner
     setLoading(false)
     if (response.status === 404) {

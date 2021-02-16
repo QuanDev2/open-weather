@@ -4,7 +4,6 @@ const URL = 'https://api.openweathermap.org/data/2.5/forecast'
 const API_KEY = process.env.REACT_APP_APIKEY
 
 export function buildGetReq(city) {
-  console.log(`API KEY: ${API_KEY}`)
   return axios.create({
     baseURL: URL,
     timeout: 1000,

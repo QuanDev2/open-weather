@@ -2,7 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import DateTime from './DateTime';
 
-const Container = styled.div``
+const Container = styled.div`
+  flex-basis: 220px;
+`
 
 const Icon = styled.img`
   width: 150px;
@@ -19,7 +21,7 @@ function WeatherIcon({ iconId, description, time }) {
   const iconUrl = `https://openweathermap.org/img/wn/${iconId}@4x.png`
   return (
     <Container>
-      <DateTime epochTime={time}/>
+      <DateTime epochTime={time} />
       <Icon src={iconUrl} alt={description} />
       <Description>{description}</Description>
     </Container>

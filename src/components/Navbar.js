@@ -2,8 +2,9 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ToggleBtn from '../utils/ToggleBtn';
+import { useHistory } from 'react-router-dom'
 
 const Container = styled.nav`
   display: flex;
@@ -45,6 +46,7 @@ const Title = styled(Link)`
 
 export default function Navbar({ handleSubmit, showError }) {
   const [input, setInput] = useState('')
+  const history = useHistory()
 
   function onInputSubmit(e) {
     e.preventDefault()
@@ -52,7 +54,11 @@ export default function Navbar({ handleSubmit, showError }) {
       showError('Please enter a city name')
       return
     }
-    handleSubmit(input)
+    console.log("Hey", input)
+    history.push({
+      pathname: '/forecast',
+      search: `city=${input}`
+    })
   }
 
   return (
@@ -74,7 +80,7 @@ export default function Navbar({ handleSubmit, showError }) {
           <FontAwesomeIcon icon={faSearch} />
         </SubmitBtn>
       </NavForm>
-      <ToggleBtn/>
+      <ToggleBtn />
     </Container>
   )
 }

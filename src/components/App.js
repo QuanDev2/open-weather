@@ -1,20 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import styled from '@emotion/styled'
 import MainContent from './MainContent'
 import GlobalStyle from '../utils/stylingUtils/GlobalStyle'
-import Welcome from './Welcome'
+import Homepage from './Homepage'
 import Error from './Error'
 import Spinner from '../utils/Spinner'
 import useFormSubmit from '../utils/useFormSubmit'
+
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from 'react-router-dom'
 import NotFound from './NotFound'
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,32 +24,24 @@ const Wrapper = styled.div`
   flex-direction: column;
 `
 function App() {
-  const { loading, data, error, handleSubmit, showError } = useFormSubmit()
+  const { error, showError } = useFormSubmit()
+
   return (
-      <Router>
-        {data && (
-          <Redirect
-            to={{
-              pathname: '/result',
-              state: { data: data }
-            }}
-          />
-        )}
-        <GlobalStyle />
-        <Wrapper>
-          <Navbar handleSubmit={handleSubmit} showError={showError} />
-          <Switch>
-            {loading && <Spinner />}
-            {error && <Error msg={error} />}
-            <Route exact path='/' component={Welcome} />
-            <Route path='/result'>
-              <MainContent />
-            </Route>
-            <Route path='*' component={NotFound} />
-          </Switch>
-          <Footer />
-        </Wrapper>
-      </Router>
+    <Router>
+      <GlobalStyle />
+      <Wrapper>
+        <Navbar showError={showError} />
+        <Switch>
+          {error && <Error msg={error} />}
+          <Route exact path='/' component={Homepage} />
+          <Route path='/forecast'>
+            <MainContent />
+          </Route>
+          <Route path='*' component={NotFound} />
+        </Switch>
+        <Footer />
+      </Wrapper>
+    </Router>
   )
 }
 

@@ -36,6 +36,9 @@ font-size: 1.25rem;
 `
 
 function CityInfo({ city }) {
+
+  if (!city) return null
+
   const sunsetTime = new Date(city.sunset * 1000).toLocaleString('en-US', {
     hour: 'numeric',
     minute: 'numeric',
@@ -50,9 +53,9 @@ function CityInfo({ city }) {
   return (
     <Container>
       <FlexContainer>
-        <Sunrise><SunriseIcon className="wi wi-sunrise"/> Sunrise: {sunriseTime}</Sunrise>
+        <Sunrise><SunriseIcon className="wi wi-sunrise" /> Sunrise: {sunriseTime}</Sunrise>
         <CityName>{city.name}</CityName>
-        <Sunset>Sunset: {sunsetTime} <SunsetIcon className="wi wi-sunset"/></Sunset>
+        <Sunset>Sunset: {sunsetTime} <SunsetIcon className="wi wi-sunset" /></Sunset>
       </FlexContainer>
     </Container>
   )

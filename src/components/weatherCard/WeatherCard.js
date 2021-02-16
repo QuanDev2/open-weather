@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 2rem;
   background: var(--background-card);
   color: var(--foreground-card);
   border-radius: 10px;
@@ -20,17 +20,17 @@ function WeatherCard({ data }) {
   const weather = data.weather[0]
   return (
     <Container className='color-secondary'>
-        <WeatherIcon 
+      <WeatherIcon
         time={data.dt}
-        iconId={weather.icon} 
+        iconId={weather.icon}
         description={weather.description} />
-    <Temperature data={data.main}/>
-    <WeatherStats 
-      humidity={data.main.humidity} 
-      precipitation={data.pop}
-      windSpeed={data.wind.speed}
-      windDegree={data.wind.deg}
-      clouds={data.clouds.all}/>
+      <Temperature data={data.main} />
+      <WeatherStats
+        humidity={data.main.humidity}
+        precipitation={data.pop}
+        windSpeed={data.wind.speed}
+        windDegree={data.wind.deg}
+        clouds={data.clouds.all} />
     </Container>
   )
 }
