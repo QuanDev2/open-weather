@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
-import { buildGetReq } from '../../utils/networkUtils/OpenWeatherApi';
-import ApiService from '../../utils/networkUtils/ApiService';
+import { buildGetReq } from '../utils/networkUtils/OpenWeatherApi';
+import ApiService from '../utils/networkUtils/ApiService';
 
 function useFetchData() {
   const [loading, setLoading] = useState(true)

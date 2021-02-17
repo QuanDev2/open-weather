@@ -4,7 +4,7 @@ import CityInfo from './city/CityInfo'
 import Spinner from '../utils/Spinner'
 import ForecastList from './ForecastList'
 import Error from './Error'
-import useFetchData from './hooks/useFetchData';
+import useFetchData from '../hooks/useFetchData'
 
 const Container = styled.div`
   background: var(--background-body);

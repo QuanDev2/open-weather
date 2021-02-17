@@ -18,7 +18,6 @@ function NotFound() {
   return (
     <Container>
       <Title>
-
       404! Page not found.
       </Title>
     </Container>
